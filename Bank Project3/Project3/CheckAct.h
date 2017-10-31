@@ -7,18 +7,19 @@ using namespace std;
 class CheckAct : public BankAct 
 {
 public:
-	CheckAct(string n, string t, int Num, double b, double r, double minB, double schrg); // : BankAct(n, t, Num, b, r) {}
+	CheckAct(string n, string t, int Num, double b, double r, double minB, double schrg); // : BankAct(n, t, Num, b) {}
 	CheckAct();
 	//~CheckAct();
 	void setMinBal(double);
-	double getMinBal();
-
 	void setServChrg(double);
+	void setintrate(double);
+	double getMinBal();
 	double getServChrg();
+	double getintrate();
 	void Cprint();
 
 protected:
-
+	double intrate;
 	double MinBal;
 	double ServChrg;
 

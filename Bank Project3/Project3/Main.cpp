@@ -15,17 +15,17 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////
 void Cprint();
 void displayMenu();
-void addAccount(BankAct[], int n);
-void accessAccount(BankAct[], int);
-void DisplayAll(BankAct[], int);
-void deposit(BankAct[], int);
-void withdraw(BankAct[], int);
-void checkbalance(BankAct[], int);
-void postint(BankAct[], double);
+void addAccount(CheckAct[], int n);
+void accessAccount(CheckAct[], int);
+void DisplayAll(CheckAct[], int);
+void deposit(CheckAct[], int);
+void withdraw(CheckAct[], int);
+void checkbalance(CheckAct[], int);
+void postint(CheckAct[], double);
 
 int main()
 {
-	BankAct account[10];
+	CheckAct account[10];
 	bool flag = true;
 
 	char userin;
@@ -64,7 +64,7 @@ void displayMenu()
 	cout << "\n1.Add New Account\n2.Make a Deposit\n3.Make a Withdraw\n4.Check Balance\n5.Display All accounts\n6.Exit\n";
 }
 
-void addAccount(BankAct account[], int counter)
+void addAccount(CheckAct account[], int counter)
 {
 	string newname;
 	string newtype;
@@ -84,37 +84,37 @@ void addAccount(BankAct account[], int counter)
 	int id = rand() % 100 + 1900;
 	if (newtype._Equal("c") || newtype._Equal("C"))
 	{
+		newtype = "c"; 
 		cout << "Please enter Minimun Balance: ";
 		cin >> newminbal;
 		cout << "Please enter Service Charge: ";
 		cin >> newservchrg;
 
 		CheckAct chk1(newname, newtype, id, newbalance, newintrate, newminbal, newservchrg);
-		cout << "Checking" << endl;
-		newtype = "Checking";
-		chk1.Cprint();
+		//cout << "Checking" << endl;
+		//newtype = "Checking";
+		//chk1.Cprint();
 		account[counter] = chk1;
 	}
 	else
 	{
-		SavAct Sav1(newname, id, newbalance, newintrate);
+		newtype = "s";
+		/*SavAct Sav1(newname, newtype, id, newbalance, newintrate);
 		cout << "Savings" << endl;
 		newtype = "Savings";
-		account[counter] = Sav1;
+		account[counter] = Sav1;*/
 
 	}
-
-
+	
 	cout << "\nAccount Name: " << account[counter].getname() << "\n"
 		<< "Account Type: " << account[counter].gettype() << "\n"
 		<< "Account #: " << account[counter].getactNum() << "\n"
 		<< "Balance: $" << account[counter].getbalance() << "\n"
 		<< "Interest Rate: " << account[counter].getintrate() << "\n";
-	if (newtype == "Checking")
+	if (newtype == "c")
 	{
-		
-		cout << "Minimum Balance: " << newminbal << "\n"
-			<< "Service Charge: " << newservchrg << "\n";
+	cout << "Minimum Balance: " << account[counter].getMinBal() << "\n"
+			<< "Service Charge: " << account[counter].getServChrg() << "\n";
 		/*BankAct* holder = &account[counter];
 		CheckAct* current = dynamic_cast<CheckAct*>(holder);
 		cout << "Minimun Balance:  " << current->getMinBal() << "\n"
@@ -123,7 +123,7 @@ void addAccount(BankAct account[], int counter)
 
 }
 
-void deposit(BankAct account[], int counter)
+void deposit(CheckAct account[], int counter)
 {
 int searchnumber = 0;
 double curramt = 0;
@@ -156,7 +156,7 @@ cout << "New balance is: " << account[currid].getbalance();
 }
 }
 
-void withdraw(BankAct account[], int counter)
+void withdraw(CheckAct account[], int counter)
 {
 	int searchnumber = 0;
 	double curramt = 0;
@@ -188,12 +188,12 @@ void withdraw(BankAct account[], int counter)
 		cout << "New balance is: " << account[currid].getbalance();
 	}
 }
-void checkbalance(BankAct account[], int counter)
+void checkbalance(CheckAct account[], int counter)
 {
 	accessAccount(account, counter);
 }
 
-void accessAccount(BankAct account[], int counter)
+void accessAccount(CheckAct account[], int counter)
 {
 	int searchnumber = 0;
 	double curramt = 0;
@@ -215,7 +215,7 @@ void accessAccount(BankAct account[], int counter)
 }
 
 
-void DisplayAll(BankAct account[], int currentnumaccount)
+void DisplayAll(CheckAct account[], int currentnumaccount)
 {
 	for (int i = 0; i<currentnumaccount; i++)
 		cout << "Name " << account[i].getname() << "\n"

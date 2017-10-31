@@ -4,8 +4,9 @@
 using namespace std;
 
 
-CheckAct::CheckAct(string n, string t,  int Num, double b, double r, double minB, double schrg) : BankAct(n, t, Num, b, r)
+CheckAct::CheckAct(string n, string t,  int Num, double b, double r, double minB, double schrg) : BankAct(n, t, Num, b)
 {
+	intrate = r;
 	MinBal = minB;
 	ServChrg = schrg;
 	
@@ -13,6 +14,7 @@ CheckAct::CheckAct(string n, string t,  int Num, double b, double r, double minB
 
 CheckAct::CheckAct() : BankAct()
 {
+	intrate = 0.0;
 	MinBal = 0.0;
 	ServChrg = 0.0;
 }
@@ -23,6 +25,9 @@ double CheckAct::getMinBal() { return MinBal; }
 
 void CheckAct::setServChrg(double schrg) { ServChrg = schrg; }
 double CheckAct::getServChrg() { return ServChrg; }
+
+void CheckAct::setintrate(double r)	{	intrate = r;}
+double CheckAct::getintrate()	{	return intrate;}
 
 void CheckAct::Cprint()
 {

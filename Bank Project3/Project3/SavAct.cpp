@@ -4,12 +4,12 @@
 using namespace std;
 
 
-SavAct::SavAct(string n, int Num, double b, double r) : BankAct(n, "s", Num, b, r)
+SavAct::SavAct(string n, string t, int Num, double b, double r) : BankAct(n, t, Num, b)
 {
-	
+	intrate = r;
 }
 
 SavAct::SavAct() : BankAct()
 {
-	
+	intrate = 0.0;
 }

@@ -4,13 +4,13 @@
 using namespace std;
 
 
-BankAct::BankAct(string n, string t, int Num, double b, double r)
+BankAct::BankAct(string n, string t, int Num, double b)
 {
 	name = n;
 	type = t;
 	actNum = Num;
 	balance = b;
-	intrate = r;
+	
 }
 
 BankAct::BankAct()
@@ -19,7 +19,6 @@ BankAct::BankAct()
 	type = "C/S";
 	actNum = 0;
 	balance = 0.0;
-	intrate = 0.0;
 }
 
 
@@ -35,12 +34,11 @@ int BankAct::getactNum()		{	return actNum;}
 void BankAct::setbalance(double b)	{	balance = b;}
 double BankAct::getbalance()	{	return balance;}
 
-void BankAct::setintrate(double r)	{	intrate = r;}
-
-double BankAct::getintrate()	{	return intrate;}
+//void BankAct::setintrate(double r)	{	intrate = r;}
+//double BankAct::getintrate()	{	return intrate;}
 
 void BankAct::print()
-{	cout << name << " " << type << " " << actNum << " " << balance << " " << intrate << " " << endl;
+{	cout << name << " " << type << " " << actNum << " " << balance << " " <<  " " << endl;
 }
 
 

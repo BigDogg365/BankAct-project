@@ -7,14 +7,19 @@ using namespace std;
 class SavAct : public BankAct
 {
 public:
-	SavAct(string n, int Num, double b, double r);
+	SavAct(string n, string t, int Num, double b, double r);
 	SavAct();
+	void setintrate(double);
+	double getintrate();
+	void postInt(double);
+
 	/*~SavAct();*/
 	/*double getInterestRate();
 	void setInterestRate(double rate);*/
 
 protected:
-	void postInt(double);
+	double intrate;
+	
 };
 
 #endif
